@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sulphur+Point:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NEWSAPI </title>
+</head>
+
+<body
+    style="font-family: 'Sulphur Point', sans-serif; background-color: #263238; background-image: url(img/dark-wood.png);">
+    <div id="app" class="row">
+
+        <!-- navbar -->
+        <nav id="inicio" class="hide-on-small-only" style="background-color: #263238;">
+            <div class="nav-wrapper;">
+                <a href="#" class="brand-logo center">THE NEW YORK API TECNOLOGY</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="index.html"><i class="material-icons right">fiber_new</i>NEWS USA</a></li>
+                    <li><a href="newsmx.html"><i class="material-icons right">fiber_new</i>NEWS MEX</a></li>
+                    <li><a href="business.html"><i class="material-icons right">attach_money</i>BUSINESS</a></li>
+                    <li><a href="entertaiment.html"><i class="material-icons right">insert_emoticon</i>ENTERTAIMENT</a>
+                    </li>
+                </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <script type="text/javascript">
+                            function startTime() {
+                                today = new Date();
+                                h = today.getHours();
+                                m = today.getMinutes();
+                                s = today.getSeconds();
+                                m = checkTime(m);
+                                s = checkTime(s);
+                                document.getElementById('reloj').innerHTML = h + ":" + m + ":" + s + " - ";
+                                t = setTimeout('startTime()', 500);
+                            }
+                            function checkTime(i) { if (i < 10) { i = "0" + i; } return i; }
+                            window.onload = function () { startTime(); }
+                        </script>
+                        <div id="reloj" style="font-size:15px;"></div>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <script type="text/javascript">
+                            //<![CDATA[
+                            var date = new Date();
+                            var d = date.getDate();
+                            var day = (d < 10) ? '0' + d : d;
+                            var m = date.getMonth() + 1;
+                            var month = (m < 10) ? '0' + m : m;
+                            var yy = date.getYear();
+                            var year = (yy < 1000) ? yy + 1900 : yy;
+                            document.write(" - "+day + "/" + month + "/" + year);
+                            //]]>
+                        </script>
+                    </li>
+                    <li><a href="#footer" style="color: white;"><i class="material-icons right"
+                                style="color: white;">add</i>MORE</a></li>
+                    <li>
+                </ul>
+            </div>
+        </nav>
+        <!-- navbar -->
+
+        <!-- SIDENAV -->
+        <ul id="slide-out" class="sidenav white-text"
+            style="background-color: #00131f; background-image: url(img/dark-wood.png);">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img style="opacity: 0.2;" src="img/banners/tecnologia.webp" class="responsive-img">
+                      </div>
+                    <div class="title">
+                        <h2><b>THE NEW YORK API TECNOLOGY</b></h2>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a href="index.html" style="color: white;"><i class="material-icons right" style="color: white;">fiber_new</i>NEWS USA</a></li>
+            <li><a href="newsmx.html" style="color: white;"><i class="material-icons right"
+                        style="color: white;">fiber_new</i>NEWS MEXICO</a></li>
+            <li><a href="business.html" style="color: white;"><i class="material-icons right"
+                        style="color: white;">attach_money</i>BUSINESS</a></li>
+            <li><a href="entertaiment.html" style="color: white;"><i class="material-icons right"
+                        style="color: white;">insert_emoticon</i>ENTERTAIMENT</a></li>
+
+        </ul>
+
+
+        <!-- FINSIDENAV -->
+
+        <!-- titulo pagina -->
+        <div class="col l12 m12 s12 white-text show-on-small hide-on-med-and-up"
+            style="background-color: #263238; background-image: url(img/retina-wood.png);">
+            <div class="center">
+                <h2><b>THE NEW YORK API</b></h2>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                </ul>
+                <a href="#" data-target="slide-out" class="sidenav-trigger show-on-small hide-on-med-and-up left"><i
+                        class="material-icons white-text">menu</i></a>
+            </div>
+        </div>
+        <!-- fin titulo pagina -->
+
+        <!-- BARRA DE CARGA -->
+        <div class="col l12 center">
+            <div v-if="estado" class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-white-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN BARRA DE CARGA -->
+
+        <!-- NOTICIAS -->
+        <div v-if="estado==false">
+            <div v-for='item in nuevas'>
+                <div class="col l6 offset-l3 center">
+                    <div class="card z-depth-5 white-text" style="background-color: #607d8b;">
+                        <div class="card-image">
+                            <img @click="ver_modal(item)" :src="item.urlToImage" class="responsive-img">
+
+                        </div>
+                        <div class="card-context">
+                            <h1 @click="ver_modal(item)" class="card-title">{{item.title}}</h1>
+                        </div>
+                        <div class="card-content">
+                            <h6 @click="ver_modal(item)">Por: {{item.author}}</h6>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN NOTICIA -->
+
+        <!-- UP BUTTON -->
+        <div class="fixed-action-btn">
+            <a href="#inicio" class="btn-floating btn-large black" style="background-color: aliceblue;">
+                <i class="large material-icons">arrow_upward</i>
+            </a>
+        </div>
+        <!-- FIN UP BUTTON -->
+
+        <!-- MODAL -->
+        <div id="modal1" class="modal white-text" style="background-color: #607d8b;">
+            <div v-if="nueva!=null">
+                <div class="modal-content center">
+                    <br><br>
+                    <h4><b>Title: {{nueva.title}}</h4><br>
+                    <h5><b>Author:</b> {{nueva.author}}</h5><br>
+                    <p><b>Date: </b>{{nueva.publishedAt}}</p><br>
+                    <h6><b>Description:</b> {{nueva.description}}</h6><br>
+                    <h6><b>Content:</b> {{nueva.content}}</h6><br>
+                    <br>
+                    <a class="center black-text" :href="nueva.url">view more of this article</a>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        <!-- FIN MODAL -->
+    </div>
+    <!-- FOOTER -->
+    <footer class="hide-on-small-only" id="footer" class="page-footer"
+        style="background-color: #263238; background-image: url(img/black-mamba.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12 white-text">
+                    <h5 class="white-text">Dear reader</h5>
+                    <p class="text-lighten-4">
+                        Thanks for visiting us. <br>
+                        This page has the latest entertainment, tecology and business news from the United States and
+                        also the
+                        latest news from Mexico
+                        <br>
+                        <hr>
+                        Proyecto realizado por Miqueas Zambrano y Nicolás Arevalo. <br>
+                        Proyecto implementado usos de VUE, AXIOS y API. <br>
+                        Presentado para la evaluación sumativa 3. <br>
+                        DESARROLLO DE APLICACIONES WEB - TIDS10 - SECCIÓN 912-4D
+                    </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://newsapi.org">Api's gracias a NewsApi</a>
+                        </li>
+                        <li><a class="grey-text text-lighten-3"
+                                href="https://es-vuejs.github.io/vuejs.org/">Desarrollado con Vue.js</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://materializecss.com">Con Caracteristicas de
+                                Materializecss</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.transparenttextures.com">Background
+                                images by transparenttextures</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://fonts.google.com">Tipo de letras de
+                                fonts.google</a></li>
+                        <li><a class="grey-text text-lighten-3" href="desarrolladores.html">Desarrolladores</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container white-text">
+                © 2019 Copyright by N&M LTA
+            </div>
+        </div>
+    </footer>
+    <!-- FIN FOOTER -->
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                estado: true,
+                nuevas: [],
+                url: 'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=1b8c4b429b4a49738cbea292e2fd7f19',
+                nueva: null,
+            },
+            methods: {
+                async cargar() {
+                    var resultado = await axios.get(this.url);
+                    this.nuevas = resultado.data.articles;
+                    console.log(resultado.data);
+                    this.estado = false;
+                },
+                ver_modal(item) {
+                    this.nueva = item;
+                    var instance = M.Modal.getInstance(document.getElementById("modal1"));
+                    instance.open();
+                }
+            },
+            created() {
+                this.cargar();
+            },
+            mounted() {
+                document.addEventListener('DOMContentLoaded', function () {
+                    var elems = document.querySelectorAll('.modal');
+                    var instances = M.Modal.init(elems);
+
+                    var elems = document.querySelectorAll('.sidenav');
+                    var instances = M.Sidenav.init(elems);
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>
